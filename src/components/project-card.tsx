@@ -3,9 +3,9 @@ import {
   Card,
   CardHeader,
   CardBody,
-  Typography,
   Button,
 } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
 import Link from "next/link";
 
 interface ProjectCardProps {
@@ -19,8 +19,8 @@ interface ProjectCardProps {
 
 export function ProjectCard({ img, title, link, desc, slug, tech }: ProjectCardProps) {
   return (
-    <Card color="transparent" shadow={false}>
-      <CardHeader floated={false} className="mx-0 mt-0 mb-6 h-58">
+     <Card {...({} as any)} color="transparent" shadow={false}>
+      <CardHeader {...({} as any)}  floated={false} className="mx-0 mt-0 mb-6 h-58">
         <a href={`${link}`}>
 
           <Image
@@ -32,23 +32,23 @@ export function ProjectCard({ img, title, link, desc, slug, tech }: ProjectCardP
           />
         </a>
       </CardHeader>
-      <CardBody className="p-0">
+       <CardBody {...({} as any)}  className="p-0">
         <a
           href={`${link}`}
           className="text-gray-gray-900 transition-colors hover:text-gray-800"
         >
-          <Typography variant="h5" className="mb-2">
+          <TypographySafe {...({} as any)} variant="h5" className="mb-2">
             {title}
-          </Typography>
+          </TypographySafe>
         </a>
-        <Typography className="mb-6 font-normal !text-gray-500">
+        <TypographySafe {...({} as any)} className="mb-6 font-normal !text-gray-500">
           {desc}
-        </Typography>
-        <Typography className="mb-2 font-bold text-gray-gray-500">
+        </TypographySafe>
+        <TypographySafe {...({} as any)} className="mb-2 font-bold text-gray-gray-500">
           {tech}
-        </Typography>
+        </TypographySafe>
         <Link href={`/projects/${slug}`}>
-          <Button color="gray" size="sm">
+          <Button {...({} as any)}  color="gray" size="sm">
             Voir le projet
           </Button>
         </Link>

@@ -2,7 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { Typography, Card, CardBody, Avatar } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
+import { Card, CardBody, Avatar } from "@material-tailwind/react";
 
 export function Testimonial() {
   const [active, setActive] = React.useState(3);
@@ -11,43 +12,43 @@ export function Testimonial() {
     <section className="py-12 px-8 lg:py-24">
       <div className="container max-w-screen-lg mx-auto">
         <div className="container mx-auto mb-20 text-center">
-          <Typography variant="h2" color="gray-gray" className="mb-4">
+          <TypographySafe {...({} as any)} variant="h2" color="gray-gray" className="mb-4">
             What Clients Say
-          </Typography>
-          <Typography
+          </TypographySafe>
+          <TypographySafe {...({} as any)} 
             variant="lead"
             className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-8/12"
           >
             Discover what clients have to say about their experiences working
             with me. My client&apos;s satisfaction is my greatest achievement!
-          </Typography>
+          </TypographySafe>
         </div>
-        <Card color="transparent" shadow={false} className="py-8 lg:flex-row">
-          <CardBody className="w-full lg:gap-10 h-full lg:!flex justify-between ">
+         <Card {...({} as any)} color="transparent" shadow={false} className="py-8 lg:flex-row">
+           <CardBody {...({} as any)}  className="w-full lg:gap-10 h-full lg:!flex justify-between ">
             <div className="w-full mb-10 lg:mb-0">
-              <Typography
+              <TypographySafe {...({} as any)} 
                 variant="h3"
                 color="gray-gray"
                 className="mb-4 font-bold lg:max-w-xs"
               >
                 Mobile App Development
-              </Typography>
-              <Typography className="mb-3 w-full lg:w-8/12 font-normal !text-gray-500">
+              </TypographySafe>
+              <TypographySafe {...({} as any)} className="mb-3 w-full lg:w-8/12 font-normal !text-gray-500">
                 I had the pleasure of working with Lily on a critical web
                 development project, and I can confidently say that their
                 expertise and professionalism exceeded my expectations.
-              </Typography>
-              <Typography variant="h6" color="gray-gray" className="mb-0.5">
+              </TypographySafe>
+              <TypographySafe {...({} as any)} variant="h6" color="gray-gray" className="mb-0.5">
                 Michael - Technical Manager
-              </Typography>
-              <Typography
+              </TypographySafe>
+              <TypographySafe {...({} as any)} 
                 variant="small"
                 className="font-normal mb-5 !text-gray-500"
               >
                 Marketing @ APPLE INC.
-              </Typography>
+              </TypographySafe>
               <div className="flex items-center gap-4">
-                <Avatar
+                <Avatar {...({} as any)} 
                   variant="rounded"
                   src="/image/avatar1.jpg"
                   alt="spotify"
@@ -58,7 +59,7 @@ export function Testimonial() {
                   onClick={() => setActive(1)}
                 />
                 <div className="w-[1px] h-[36px] bg-gray-gray-100 "></div>
-                <Avatar
+                <Avatar {...({} as any)} 
                   variant="rounded"
                   src="/image/avatar2.jpg"
                   alt="spotify"
@@ -69,7 +70,7 @@ export function Testimonial() {
                   onClick={() => setActive(2)}
                 />
                 <div className="w-[1px] h-[36px] bg-gray-gray-100" />
-                <Avatar
+                <Avatar {...({} as any)} 
                   variant="rounded"
                   src="/image/avatar3.jpg"
                   alt="spotify"

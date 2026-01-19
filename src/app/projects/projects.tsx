@@ -1,7 +1,7 @@
 "use client";
 
 import { ProjectCard } from "@/components";
-import { Typography } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -66,17 +66,20 @@ export function Projects() {
   return (
     <section id="projects" className="px-8 py-24 bg-gray-50">
       <div className="container mx-auto mb-16 text-center">
-        <Typography variant="h2" color="gray-gray" className="mb-4">
-          Projets réalisés
-        </Typography>
-        <Typography
+         <TypographySafe {...({} as any)} color="blue-gray" className="mb-2 font-bold uppercase">
+          expériences
+        </TypographySafe>
+        <TypographySafe {...({} as any)} as="h2" color="blue-gray" className="mb-4 text-3xl font-bold">
+           Projets réalisés
+        </TypographySafe>
+        <TypographySafe {...({} as any)}
           variant="lead"
           className="mx-auto w-full px-4 text-gray-600 lg:w-7/12"
         >
           Une sélection de projets sur lesquels j’ai travaillé, illustrant mon
           expérience en développement d’applications web et mobiles orientées
           métier.
-        </Typography>
+        </TypographySafe>
       </div>
 
       <div className="container mx-auto">

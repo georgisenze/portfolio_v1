@@ -1,6 +1,7 @@
 "use client";
 
-import { Typography, Button } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
+import { Button } from "@material-tailwind/react";
 import {
   AcademicCapIcon,
   BriefcaseIcon,
@@ -39,22 +40,30 @@ export function Resume() {
       <div className="container mx-auto grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
         {/* Left */}
         <div>
-          <Typography variant="h2" color="gray-gray" className="mb-4">
+          <TypographySafe
+            {...({} as any)}
+            as="h2"
+            color="blue-gray"
+            className="mb-4 text-3xl font-bold"
+          >
             Résumé professionnel
-          </Typography>
+          </TypographySafe>
 
-          <Typography className="mb-6 w-full lg:w-10/12 text-gray-600">
+          <TypographySafe
+            {...({} as any)}
+            className="mb-6 w-full lg:w-10/12 text-gray-600"
+          >
             Développeur web et mobile fullstack, spécialisé dans la conception
             d’applications métiers performantes et évolutives. J’interviens sur
-            des projets variés allant du e-commerce aux systèmes de gestion,
-            en passant par des solutions de suivi et de géolocalisation.
+            des projets variés allant du e-commerce aux systèmes de gestion, en
+            passant par des solutions de suivi et de géolocalisation.
             <br />
-            <br />
-            À l’aise en environnement agile, en équipe ou en remote.
-          </Typography>
+            <br />À l’aise en environnement agile, en équipe ou en remote.
+          </TypographySafe>
 
           <a href="/cv/Georgino_Bouko_CV.pdf" target="_blank">
             <Button
+              {...({} as any)}
               color="gray"
               className="flex items-center gap-2"
             >

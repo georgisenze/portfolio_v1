@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Button, Typography } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
+
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 
 function Hero() {
@@ -9,16 +11,16 @@ function Hero() {
     <header id="home" className="bg-white px-8 py-16">
       <div className="container mx-auto grid min-h-[70vh] grid-cols-1 items-center gap-10 lg:grid-cols-2">
         <div>
-          <Typography
+          <TypographySafe {...({} as any)}
             variant="h1"
             color="gray-gray"
             className="mb-4 text-3xl lg:text-5xl !leading-tight"
           >
             Développeur Web & Mobile <br />
             <span className="text-gray-800">Fullstack</span>
-          </Typography>
+          </TypographySafe>
 
-          <Typography
+          <TypographySafe {...({} as any)}
             variant="lead"
             className="mb-6 text-gray-600 md:pr-16 xl:pr-28"
           >
@@ -29,17 +31,17 @@ function Hero() {
             <br />
             Spécialisé en <strong>Laravel, Vue.js, React, Next.js</strong> et
             applications web & mobiles.
-          </Typography>
+          </TypographySafe>
 
           <div className="flex flex-wrap gap-4">
             <a href="/cv/Georgino_Bouko_CV.pdf" target="_blank">
-              <Button color="gray" className="flex items-center gap-2" size="lg">
+              <Button {...({} as any)} color="gray" className="flex items-center gap-2" size="lg">
                 Télercharger mon CV
                  <ArrowDownTrayIcon className="h-5 w-5" />
               </Button>
             </a>
             <a href="#contact">
-              <Button variant="outlined" color="gray" size="lg">
+              <Button {...({} as any)} variant="outlined" color="gray" size="lg">
                 Me contacter
               </Button>
             </a>

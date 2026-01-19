@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
-import { Typography, Button, Chip } from "@material-tailwind/react";
+import {  Button, Chip } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
+
 
 interface ProjectPageProps {
   params: {
@@ -22,13 +24,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     <section className="px-8 py-24">
       <div className="container mx-auto max-w-5xl">
         {/* Title */}
-        <Typography variant="h2" color="blue-gray" className="mb-4">
+        <TypographySafe {...({} as any)} as="h2" color="blue-gray" className="mb-4 text-3xl font-bold">
           {project.name}
-        </Typography>
+        </TypographySafe>
 
-        <Typography className="mb-8 text-gray-600">
+        <TypographySafe {...({} as any)} className="mb-8 text-gray-600">
           {project.longDescription}
-        </Typography>
+        </TypographySafe>
 
         {/* Tech stack */}
         <div className="mb-10 flex flex-wrap gap-2">
@@ -54,7 +56,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         {/* Link */}
         {project.link && (
           <a href={project.link} target="_blank">
-            <Button color="gray">
+            <Button {...({} as any)} color="gray">
               Voir le site
             </Button>
           </a>

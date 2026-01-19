@@ -1,4 +1,5 @@
 import { Card, CardBody, Typography } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
 
 interface SkillCardProps {
   title: string;
@@ -8,17 +9,17 @@ interface SkillCardProps {
 
 export function SkillCard({ icon: Icon, title, children }: SkillCardProps) {
   return (
-    <Card color="transparent" shadow={false}>
-      <CardBody className="grid justify-center text-center">
+     <Card {...({} as any)} color="transparent" shadow={false}>
+       <CardBody {...({} as any)}  className="grid justify-center text-center">
         <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full bg-gray-900 p-2.5 text-white shadow">
           <Icon className="h-6 w-6" strokeWidth={2} />
         </div>
-        <Typography variant="h5" color="gray-gray" className="mb-2">
+        <TypographySafe {...({} as any)} variant="h5" color="gray-gray" className="mb-2">
           {title}
-        </Typography>
-        <Typography className="px-8 font-normal !text-gray-500">
+        </TypographySafe>
+        <TypographySafe {...({} as any)} className="px-8 font-normal !text-gray-500">
           {children}
-        </Typography>
+        </TypographySafe>
       </CardBody>
     </Card>
   );

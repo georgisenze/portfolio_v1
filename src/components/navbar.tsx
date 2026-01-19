@@ -4,8 +4,8 @@ import {
   Collapse,
   Button,
   IconButton,
-  Typography,
 } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
 import {
   RectangleStackIcon,
   UserCircleIcon,
@@ -73,7 +73,7 @@ interface NavItemProps {
 function NavItem({ children, href }: NavItemProps) {
   return (
     <li>
-      <Typography
+      <TypographySafe {...({} as any)} 
         as="a"
         href={href || "#"}
         target={href ? "_blank" : "_self"}
@@ -82,7 +82,7 @@ function NavItem({ children, href }: NavItemProps) {
         className="flex items-center gap-2 font-medium text-gray-900"
       >
         {children}
-      </Typography>
+      </TypographySafe>
     </li>
   );
 }
@@ -100,11 +100,11 @@ export function Navbar() {
   }, []);
 
   return (
-    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
+    <MTNavbar {...({} as any)}  shadow={false} fullWidth className="border-0 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
-        <Typography color="gray" className="text-lg font-bold">
+        <TypographySafe {...({} as any)} color="gray" className="text-lg font-bold">
           GB. Fullstack Developer
-        </Typography>
+        </TypographySafe>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
@@ -115,11 +115,11 @@ export function Navbar() {
         </ul>
         <div className="hidden items-center gap-2 lg:flex">
           <a href="#contact-form">
-            <Button color="gray">Me contacter</Button>
+            <Button {...({} as any)}  color="gray">Me contacter</Button>
           </a>
         </div>
 
-        <IconButton
+        <IconButton {...({} as any)} 
           variant="text"
           color="gray"
           onClick={handleOpen}

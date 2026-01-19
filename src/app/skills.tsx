@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography } from "@material-tailwind/react";
+import { TypographySafe } from "@/components/TypographySafe";
 import {
   CommandLineIcon,
   Squares2X2Icon,
@@ -54,20 +54,20 @@ export function Skills() {
   return (
     <section id="skills" className="px-8 py-24">
       <div className="container mx-auto mb-16 text-center">
-        <Typography color="blue-gray" className="mb-2 font-bold uppercase">
+        <TypographySafe {...({} as any)} color="blue-gray" className="mb-2 font-bold uppercase">
           compétences
-        </Typography>
-        <Typography variant="h2" color="blue-gray" className="mb-4">
+        </TypographySafe>
+        <TypographySafe {...({} as any)} as="h2" color="blue-gray" className="mb-4 text-3xl font-bold">
           Ce que je maîtrise
-        </Typography>
-        <Typography
+        </TypographySafe>
+        <TypographySafe {...({} as any)}
           variant="lead"
           className="mx-auto w-full text-gray-600 lg:w-9/12"
         >
           Un ensemble de compétences techniques et méthodologiques me permettant
           de concevoir, développer et maintenir des applications web et mobiles
           fiables, évolutives et orientées métier.
-        </Typography>
+        </TypographySafe>
       </div>
 
       <div className="container mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
