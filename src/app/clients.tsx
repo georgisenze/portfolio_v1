@@ -53,7 +53,7 @@ const DOMAINS = [
 
 export function Expertise() {
   return (
-    <section className="px-8 py-24 bg-gray-50">
+    <section id="clients" className="px-8 py-24 bg-gray-50">
       <div className="container mx-auto">
         <div className="mb-16 text-center">
           <TypographySafe {...({} as any)} as="h2" color="blue-gray" className="mb-4 text-3xl font-bold">

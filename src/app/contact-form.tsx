@@ -45,7 +45,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact" className="px-8 py-24 bg-gray-50">
+    <section id="contact-form" className="px-8 py-24 bg-gray-50">
       <div className="container mx-auto mb-16 text-center">
         <TypographySafe {...({} as any)} as="h2" color="blue-gray" className="mb-4 text-3xl font-bold">
           Me contacter

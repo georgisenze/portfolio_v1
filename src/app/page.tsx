@@ -8,8 +8,6 @@ import Skills from "./skills";
 import Projects from "./projects/projects";
 import Resume from "./resume";
 import Stack from "./stacks";
-import Testimonial from "./testimonial";
-import PopularClients from "./popular-clients";
 import ContactForm from "./contact-form";
 
 export default function Portfolio() {
@@ -22,8 +20,6 @@ export default function Portfolio() {
       <Skills />
       <Projects />
       <Resume />
-      {/* <Testimonial /> */}
-      {/* <PopularClients /> */}
       <ContactForm />
       <Footer />
     </>

@@ -52,7 +52,7 @@ function Hero() {
           width={1024}
           height={1024}
           alt="Développement web et mobile"
-          src="/image/georgino.png"
+          src="/image/4471284.jpg"
           className="h-[35rem] w-full rounded-xl object-cover"
           priority
         />

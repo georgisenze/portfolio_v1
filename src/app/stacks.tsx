@@ -24,7 +24,7 @@ const CLIENTS = [
 
 export function Clients() {
   return (
-    <section className="px-8 py-10">
+    <section id="stack" className="px-8 py-10">
       <div className="container mx-auto text-center">
         {/* <Typography {...({} as any)} variant="h6" color="gray-gray" className="mb-8">
           My awesome clients

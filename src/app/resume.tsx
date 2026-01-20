@@ -20,17 +20,22 @@ const RESUME_ITEMS = [
   {
     icon: BriefcaseIcon,
     children:
-      "Développeur Web & Mobile Fullstack — +3 ans d’expérience (on-site & remote)",
+      "Développeur Web Fullstack — JP Management (En Remote)",
+  },
+  {
+    icon: BriefcaseIcon,
+    children:
+      "Développeur Web & Mobile Fullstack — Afric-uni (Sur site)",
   },
   {
     icon: CommandLineIcon,
     children:
-      "Stack principale : Laravel, Vue.js, React, Next.js, MySQL, MongoDB",
+      "Développeur fullstack - Youpi Sarl (Remote) : Laravel, Vue.js, React, Next.js, MySQL, MongoDB",
   },
   {
     icon: CheckCircleIcon,
     children:
-      "Méthodologie Scrum, travail en équipe, maintenance et optimisation applicative",
+      "Agent d'exploitation informatique - RESIT Technologies : Méthodologie Scrum, travail en équipe, maintenance et optimisation applicative",
   },
 ];
 

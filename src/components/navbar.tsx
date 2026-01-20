@@ -13,23 +13,8 @@ import {
   Squares2X2Icon,
   XMarkIcon,
   Bars3Icon,
+  AcademicCapIcon,
 } from "@heroicons/react/24/solid";
-
-// const NAV_MENU = [
-//   {
-//     name: "Page",
-//     icon: RectangleStackIcon,
-//   },
-//   {
-//     name: "Account",
-//     icon: UserCircleIcon,
-//   },
-//   {
-//     name: "Docs",
-//     icon: CommandLineIcon,
-//     href: "https://www.material-tailwind.com/docs/react/installation",
-//   },
-// ];
 
 const NAV_MENU = [
   {
@@ -38,14 +23,14 @@ const NAV_MENU = [
     href: "#home",
   },
   {
-    name: "À propos",
-    icon: UserCircleIcon,
+    name: "Parcours",
+    icon: AcademicCapIcon,
     href: "#resume",
   },
   {
     name: "Compétences",
     icon: CommandLineIcon,
-    href: "#skills",
+    href: "#stack",
   },
   {
     name: "Projets",
@@ -70,22 +55,36 @@ interface NavItemProps {
   href?: string;
 }
 
+// function NavItem({ children, href }: NavItemProps) {
+//   return (
+//     <li>
+//       <TypographySafe {...({} as any)} 
+//         as="a"
+//         href={href || "#"}
+//         target={href ? "_blank" : "_self"}
+//         variant="paragraph"
+//         color="gray"
+//         className="flex items-center gap-2 font-medium text-gray-900"
+//       >
+//         {children}
+//       </TypographySafe>
+//     </li>
+//   );
+// }
+
 function NavItem({ children, href }: NavItemProps) {
   return (
     <li>
-      <TypographySafe {...({} as any)} 
-        as="a"
-        href={href || "#"}
-        target={href ? "_blank" : "_self"}
-        variant="paragraph"
-        color="gray"
-        className="flex items-center gap-2 font-medium text-gray-900"
+      <a
+        href={href}
+        className="flex items-center gap-2 font-medium text-gray-900 hover:text-gray-700 transition-colors"
       >
         {children}
-      </TypographySafe>
+      </a>
     </li>
   );
 }
+
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
