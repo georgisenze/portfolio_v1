@@ -88,7 +88,7 @@ export function Footer() {
               {...({} as any)}
               className="mb-6 text-gray-400"
             >
-              Développeur Fullstack passionné par la création d'applications
+              Développeur Fullstack passionné par la création d’applications
               web modernes et performantes.
             </TypographySafe>
             <div className="flex gap-2">

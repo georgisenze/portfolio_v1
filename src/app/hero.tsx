@@ -24,9 +24,9 @@ function Hero() {
             variant="lead"
             className="mb-6 text-gray-600 md:pr-16 xl:pr-28"
           >
-            Passionné par la conception d'applications performantes et scalables,
-            j'interviens sur l'ensemble du cycle de développement : de
-            l'architecture backend à l'expérience utilisateur frontend.
+            Passionné par la conception d’applications performantes et scalables,
+            j’interviens sur l’ensemble du cycle de développement : de
+            l’architecture backend à l’expérience utilisateur frontend.
             <br />
             <br />
             Spécialisé en <strong>Laravel, Vue.js, React, Next.js</strong> et
