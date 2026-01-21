@@ -1,28 +1,24 @@
 import Image from "next/image";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Button,
-} from "@material-tailwind/react";
+import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
 import { TypographySafe } from "@/components/TypographySafe";
 import Link from "next/link";
+import { Project } from "@/data/projects";
 
 interface ProjectCardProps {
-  img: string;
-  title: string;
-  desc: string;
-  slug: string;
-  tech: string;
-  link: string;
+  project: Project;
 }
 
-export function ProjectCard({ img, title, link, desc, slug, tech }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
+  const { slug, title, desc, tech, img } = project;
+  
   return (
-     <Card {...({} as any)} color="transparent" shadow={false}>
-      <CardHeader {...({} as any)}  floated={false} className="mx-0 mt-0 mb-6 h-58">
-        <a href={`${link}`}>
-
+    <Card {...({} as any)} color="transparent" shadow={false}>
+      <CardHeader
+        {...({} as any)}
+        floated={false}
+        className="mx-0 mt-0 mb-6 h-58"
+      >
+        <a href={`/projects/view/${slug}`}>
           <Image
             src={img}
             alt={title}
@@ -32,26 +28,33 @@ export function ProjectCard({ img, title, link, desc, slug, tech }: ProjectCardP
           />
         </a>
       </CardHeader>
-       <CardBody {...({} as any)}  className="p-0">
+      <CardBody {...({} as any)} className="p-0">
         <a
-          href={`${link}`}
+          href={`/projects/view/${slug}`}
           className="text-gray-gray-900 transition-colors hover:text-gray-800"
         >
           <TypographySafe {...({} as any)} variant="h5" className="mb-2">
             {title}
           </TypographySafe>
         </a>
-        <TypographySafe {...({} as any)} className="mb-6 font-normal !text-gray-500">
+        <TypographySafe
+          {...({} as any)}
+          className="mb-6 font-normal !text-gray-500"
+        >
           {desc}
         </TypographySafe>
-        <TypographySafe {...({} as any)} className="mb-2 font-bold text-gray-gray-500">
-          {tech}
+        <TypographySafe
+          {...({} as any)}
+          variant="h5"
+          className="mb-2 font-bold text-gray-gray-500"
+        >
+          {tech.join(" • ")}
         </TypographySafe>
-        <Link href={`/projects/${slug}`}>
-          <Button {...({} as any)}  color="gray" size="sm">
+        <a href={`/projects/view/${slug}`}>
+          <Button {...({} as any)} color="gray" size="sm">
             Voir le projet
           </Button>
-        </Link>
+        </a>
       </CardBody>
     </Card>
   );

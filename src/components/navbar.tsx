@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Navbar as MTNavbar,
@@ -15,62 +17,35 @@ import {
   Bars3Icon,
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
+import { usePathname } from "next/navigation";
 
 const NAV_MENU = [
   {
     name: "Accueil",
     icon: Squares2X2Icon,
-    href: "#home",
+    href: "/#home",
   },
   {
     name: "Parcours",
     icon: AcademicCapIcon,
-    href: "#resume",
+    href: "/#resume",
   },
   {
     name: "Compétences",
     icon: CommandLineIcon,
-    href: "#stack",
+    href: "/#stack",
   },
   {
     name: "Projets",
     icon: RectangleStackIcon,
-    href: "#projects",
+    href: "/#projects",
   },
-  // {
-  //   name: "Expériences",
-  //   icon: RectangleStackIcon,
-  //   href: "#experience",
-  // },
-  // {
-  //   name: "Contact",
-  //   icon: UserCircleIcon,
-  //   href: "#contact-form",
-  // },
 ];
-
 
 interface NavItemProps {
   children: React.ReactNode;
   href?: string;
 }
-
-// function NavItem({ children, href }: NavItemProps) {
-//   return (
-//     <li>
-//       <TypographySafe {...({} as any)} 
-//         as="a"
-//         href={href || "#"}
-//         target={href ? "_blank" : "_self"}
-//         variant="paragraph"
-//         color="gray"
-//         className="flex items-center gap-2 font-medium text-gray-900"
-//       >
-//         {children}
-//       </TypographySafe>
-//     </li>
-//   );
-// }
 
 function NavItem({ children, href }: NavItemProps) {
   return (
@@ -85,25 +60,41 @@ function NavItem({ children, href }: NavItemProps) {
   );
 }
 
-
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   const handleOpen = () => setOpen((cur) => !cur);
 
   React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpen(false)
-    );
+    const handleResize = () => {
+      if (window.innerWidth >= 960) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <MTNavbar {...({} as any)}  shadow={false} fullWidth className="border-0 sticky top-0 z-50">
+    <MTNavbar
+      {...({} as any)}
+      shadow={false}
+      fullWidth
+      className="border-0 sticky top-0 z-50"
+    >
       <div className="container mx-auto flex items-center justify-between">
-        <TypographySafe {...({} as any)} color="gray" className="text-lg font-bold">
-          GB. Fullstack Developer
-        </TypographySafe>
+        <a href="/" className="cursor-pointer">
+          <TypographySafe
+            {...({} as any)}
+            color="gray"
+            className="text-lg font-bold"
+          >
+            GB. Fullstack Developer
+          </TypographySafe>
+        </a>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
@@ -113,12 +104,15 @@ export function Navbar() {
           ))}
         </ul>
         <div className="hidden items-center gap-2 lg:flex">
-          <a href="#contact-form">
-            <Button {...({} as any)}  color="gray">Me contacter</Button>
+          <a href="/#contact-form">
+            <Button {...({} as any)} color="gray">
+              Me contacter
+            </Button>
           </a>
         </div>
 
-        <IconButton {...({} as any)} 
+        <IconButton
+          {...({} as any)}
           variant="text"
           color="gray"
           onClick={handleOpen}
@@ -141,12 +135,13 @@ export function Navbar() {
               </NavItem>
             ))}
           </ul>
-          {/* <div className="mt-6 mb-4 flex items-center gap-2">
-            <Button variant="text">Sign In</Button>
-            <a href="https://www.material-tailwind.com/blocks" target="_blank">
-              <Button color="gray">blocks</Button>
+          <div className="mt-6 mb-4 flex items-center gap-2">
+            <a href="/#contact-form" className="w-full">
+              <Button {...({} as any)} color="gray" className="w-full">
+                Me contacter
+              </Button>
             </a>
-          </div> */}
+          </div>
         </div>
       </Collapse>
     </MTNavbar>

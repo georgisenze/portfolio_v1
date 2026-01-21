@@ -2,65 +2,12 @@
 
 import { ProjectCard } from "@/components";
 import { TypographySafe } from "@/components/TypographySafe";
-
+import { projects } from "@/data/projects";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { link } from "fs";
-
-const PROJECTS = [
-  {
-    img: "/image/youpi1.png",
-    title: "YoupiJob",
-    desc: "Plateforme de mise en relation entre particuliers ou entreprises et des prestataires de services.",
-    tech: "Laravel • Next.js • MongoDB",
-    link: "https://youpijob.cm",
-    slug: "youpijob",
-  },
-  {
-    img: "/image/pambeh1.png",
-    title: "Pambeh",
-    desc: "Application mobile de mise en relation entre particuliers et professionnels pour divers services à domicile.",
-    tech: "Laravel • Next.js • MongoDB",
-    link: "https://pambeh.cm",
-    slug: "pambeh",
-  },
-  {
-    img: "/image/courrier.png",
-    title: "Enterprise Mail Manager",
-    desc: "Platforme de gestion et de suivi des courriers entrants, sortants et interne de votre entreprise.",
-    tech: "Laravel • MySQL",
-    link: "#",
-    slug: "courrier"
-  },
-  {
-    img: "/image/dbi1.png",
-    title: "Destination Bonheur Internationnal",
-    desc: "Site vitrine pour une communauté, présentant leurs activités et événements.",
-    tech: "Laravel • MySQL",
-    link: "#",
-    slug: "dbi",
-  },
-  {
-    img: "/image/inventory.png",
-    title: "Inventory — Gestion de stocks",
-    desc: "Système complet de gestion des stocks : entrées, sorties, suivi des produits et reporting.",
-    tech: "Laravel • Vue.js • MySQL",
-    link: "#",
-    slug: "inventory"
-  },
-
-  {
-    img: "/image/sungrocery.png",
-    title: "SunGrocery",
-    desc: "Intégration d’un module de dropshipping et maintenance évolutive d’une plateforme e-commerce existante.",
-    tech: "Laravel • Vue.js • Paiement en ligne",
-    link: "https://sungrocery.biz",
-    slug: "sungrocery"
-  },
-];
 
 export function Projects() {
   return (
@@ -91,7 +38,10 @@ export function Projects() {
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          pagination={{ clickable: true }}
+          pagination={{ 
+            clickable: true,
+            progressbarOpposite: true,
+          }}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -105,12 +55,20 @@ export function Projects() {
           }}
           height={400}
         >
-          {PROJECTS.map((project, idx) => (
+          {/* {PROJECTS.map((project, idx) => (
             <SwiperSlide key={idx}>
               <ProjectCard
                 {...project}
                 slug={project.slug}
                 link={project.link || ""}
+              />
+            </SwiperSlide>
+          ))} */}
+          {projects.map((project, idx) => (
+            <SwiperSlide key={idx}>
+              <ProjectCard
+                key={project.slug}
+                project={project}
               />
             </SwiperSlide>
           ))}
