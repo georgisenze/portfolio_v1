@@ -1,61 +1,150 @@
-import { Typography, Button } from "@material-tailwind/react";
-import { TypographySafe } from "@/components/TypographySafe";
+"use client";
 
-import {
-  RectangleStackIcon,
-  UserCircleIcon,
-  CommandLineIcon,
-  Squares2X2Icon,
-  XMarkIcon,
-  Bars3Icon,
-} from "@heroicons/react/24/solid";
+import { TypographySafe } from "@/components/TypographySafe";
+import { IconButton } from "@material-tailwind/react";
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 const LINKS = [
-   {
-    name: "Accueil",
-    icon: Squares2X2Icon,
-    href: "#home",
+  {
+    title: "Navigation",
+    items: [
+      { name: "Accueil", href: "/#home" },
+      { name: "Parcours", href: "/#resume" },
+      { name: "Compétences", href: "/#stack" },
+      { name: "Projets", href: "/#projects" },
+    ],
   },
   {
-    name: "À propos",
-    icon: UserCircleIcon,
-    href: "#resume",
-  },
-  {
-    name: "Compétences",
-    icon: CommandLineIcon,
-    href: "#skills",
-  },
-  {
-    name: "Projets",
-    icon: RectangleStackIcon,
-    href: "#projects",
+    title: "Contact",
+    items: [
+      { name: "Me contacter", href: "/#contact-form" },
+    ],
   },
 ];
-const CURRENT_YEAR = new Date().getFullYear();
+
+const SOCIAL_MEDIA = [
+  {
+    icon: (
+      <svg
+        className="h-5 w-5"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.608-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.08.08 0 00.087-.027c.461-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 00-.008-.128 10.713 10.713 0 00.372-.294.075.075 0 00.088-.01 14.047 14.047 0 0012.052 0 .075.075 0 00.088.011c.12.098.246.198.373.294a.077.077 0 00-.007.128 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.36.699.77 1.364 1.225 1.994a.076.076 0 00.087.027 19.86 19.86 0 006.002-3.03.077.077 0 00.032-.056c.5-4.506-.838-8.962-3.554-12.664a.06.06 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.191-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.191-.964 2.156-2.157 2.156z" />
+      </svg>
+    ),
+    href: "georgi7232", // Remplacez par votre lien
+  },
+  {
+    icon: (
+      <svg
+        className="h-5 w-5"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fillRule="evenodd"
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          clipRule="evenodd"
+        />
+      </svg>
+    ),
+    href: "https://github.com/georgisenze", // Remplacez par votre lien
+  },
+  {
+    icon: (
+      <svg
+        className="h-5 w-5"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+      </svg>
+    ),
+    href: "https://linkedin.com/in/georgino-bouko-0666aa195", // Remplacez par votre lien
+  },
+];
 
 export function Footer() {
   return (
-    <footer className="mt-10 px-8 pt-20">
+    <footer className="relative w-full bg-gray-900 px-8 pt-12 pb-8 mt-10">
       <div className="container mx-auto">
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-y-4 border-t border-gray-200 py-6 md:justify-between">
-          <TypographySafe {...({} as any)} className="text-center font-normal !text-gray-700">
-            &copy; {CURRENT_YEAR} Georgino Bouko – Tous droits réservés.
-          </TypographySafe>
-          <ul className="flex gap-8 items-center">
-            {LINKS.map((link) => (
-              <li key={link.name}>
-                <TypographySafe {...({} as any)} 
-                  as="a"
-                  href={link.href}
-                  variant="small"
-                  className="font-normal text-gray-700 hover:text-gray-900 transition-colors"
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {/* Logo et description */}
+          <div className="lg:col-span-2">
+            <a href="/" className="inline-block mb-4">
+              <TypographySafe
+                {...({} as any)}
+                className="text-lg font-bold text-white"
+              >
+                GB. Fullstack Developer
+              </TypographySafe>
+            </a>
+            <TypographySafe
+              {...({} as any)}
+              className="mb-6 text-gray-400"
+            >
+              Développeur Fullstack passionné par la création d'applications
+              web modernes et performantes.
+            </TypographySafe>
+            <div className="flex gap-2">
+              {SOCIAL_MEDIA.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  {link.name}
-                </TypographySafe>
-              </li>
-            ))}
-          </ul>
+                  <IconButton
+                    {...({} as any)}
+                    variant="text"
+                    color="white"
+                    className="hover:bg-gray-800"
+                  >
+                    {social.icon}
+                  </IconButton>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Liens */}
+          {LINKS.map(({ title, items }) => (
+            <div key={title}>
+              <TypographySafe
+                {...({} as any)}
+                className="mb-4 font-bold text-white"
+              >
+                {title}
+              </TypographySafe>
+              <ul className="space-y-3">
+                {items.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-gray-400 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-12 border-t border-gray-800 pt-8">
+          <TypographySafe
+            {...({} as any)}
+            className="text-center text-gray-400"
+          >
+            &copy; {CURRENT_YEAR} GB. Fullstack Developer. Tous droits réservés.
+          </TypographySafe>
         </div>
       </div>
     </footer>
