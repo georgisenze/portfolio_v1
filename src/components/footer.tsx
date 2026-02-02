@@ -1,27 +1,10 @@
 "use client";
 
 import { TypographySafe } from "@/components/TypographySafe";
+import { useScopedI18n } from "@/locales/client";
 import { IconButton } from "@material-tailwind/react";
 
 const CURRENT_YEAR = new Date().getFullYear();
-
-const LINKS = [
-  {
-    title: "Navigation",
-    items: [
-      { name: "Accueil", href: "/#home" },
-      { name: "Parcours", href: "/#resume" },
-      { name: "Compétences", href: "/#stack" },
-      { name: "Projets", href: "/#projects" },
-    ],
-  },
-  {
-    title: "Contact",
-    items: [
-      { name: "Me contacter", href: "/#contact-form" },
-    ],
-  },
-];
 
 const SOCIAL_MEDIA = [
   {
@@ -70,6 +53,23 @@ const SOCIAL_MEDIA = [
 ];
 
 export function Footer() {
+  const scopedT = useScopedI18n("footer");
+
+  const LINKS = [
+    {
+      title: scopedT("contact.title"),
+      items: [
+        { name: scopedT("navigation.home"), href: "/#home" },
+        { name: scopedT("navigation.resume"), href: "/#resume" },
+        { name: scopedT("navigation.skills"), href: "/#stack" },
+        { name: scopedT("navigation.projects"), href: "/#projects" },
+      ],
+    },
+    {
+      title: scopedT("contact.title"),
+      items: [{ name: scopedT("contact.contactMe"), href: "/#contact-form" }],
+    },
+  ];
   return (
     <footer className="relative w-full bg-gray-900 px-8 pt-12 pb-8 mt-10">
       <div className="container mx-auto">
@@ -81,15 +81,11 @@ export function Footer() {
                 {...({} as any)}
                 className="text-lg font-bold text-white"
               >
-                GB. Fullstack Developer
+                {scopedT("brand")}
               </TypographySafe>
             </a>
-            <TypographySafe
-              {...({} as any)}
-              className="mb-6 text-gray-400"
-            >
-              Développeur Fullstack passionné par la création d’applications
-              web modernes et performantes.
+            <TypographySafe {...({} as any)} className="mb-6 text-gray-400">
+              {scopedT("description")}
             </TypographySafe>
             <div className="flex gap-2">
               {SOCIAL_MEDIA.map((social, index) => (
@@ -143,7 +139,7 @@ export function Footer() {
             {...({} as any)}
             className="text-center text-gray-400"
           >
-            &copy; {CURRENT_YEAR} GB. Fullstack Developer. Tous droits réservés.
+            &copy; {CURRENT_YEAR} {scopedT("brand")}. {scopedT("copyright")}
           </TypographySafe>
         </div>
       </div>

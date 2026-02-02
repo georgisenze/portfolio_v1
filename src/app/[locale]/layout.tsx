@@ -3,8 +3,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Layout, FixedPlugin } from "@/components";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Providers } from "./providers";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -41,8 +42,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
   return (
     <html lang="en">
@@ -56,7 +59,9 @@ export default function RootLayout({
       </head>
       <body className={roboto.className}>
         <Layout>
+          <Providers locale={params.locale}>
           {children}
+          </Providers>
           <Analytics />
           <SpeedInsights />
           <FixedPlugin />

@@ -3,13 +3,16 @@ import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
 import { TypographySafe } from "@/components/TypographySafe";
 import Link from "next/link";
 import { Project } from "@/data/projects";
+import { useScopedI18n } from "@/locales/client";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  
   const { slug, title, desc, tech, img } = project;
+  const scopedT = useScopedI18n('project');
   
   return (
     <Card {...({} as any)} color="transparent" shadow={false}>
@@ -48,11 +51,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           variant="h5"
           className="mb-2 font-bold text-gray-gray-500"
         >
-          {tech.join(" • ")}
+          {tech}
         </TypographySafe>
         <a href={`/projects/view/${slug}`}>
           <Button {...({} as any)} color="gray" size="sm">
-            Voir le projet
+            {scopedT('show_project')}
           </Button>
         </a>
       </CardBody>

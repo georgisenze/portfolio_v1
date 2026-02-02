@@ -5,8 +5,11 @@ import { Button } from "@material-tailwind/react";
 import { TypographySafe } from "@/components/TypographySafe";
 
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
+import { useI18n  } from "@/locales/client";
 
-function Hero() {
+
+export default function Hero() {
+  const t = useI18n();
   return (
     <header id="home" className="bg-white px-8 py-16 overflow-hidden">
       <div className="container mx-auto grid min-h-[70vh] grid-cols-1 items-center gap-10 lg:grid-cols-2">
@@ -16,7 +19,7 @@ function Hero() {
             color="gray-gray"
             className="mb-4 text-3xl lg:text-5xl !leading-tight"
           >
-            Développeur Web & Mobile <br />
+            {t('Developpeur')} <br />
             <span className="text-gray-800">Fullstack</span>
           </TypographySafe>
 
@@ -24,25 +27,22 @@ function Hero() {
             variant="lead"
             className="mb-6 text-gray-600 md:pr-16 xl:pr-28"
           >
-            Passionné par la conception d’applications performantes et scalables,
-            j’interviens sur l’ensemble du cycle de développement : de
-            l’architecture backend à l’expérience utilisateur frontend.
+            {t('passionate_about_technology')}
             <br />
             <br />
-            Spécialisé en <strong>Laravel, Vue.js, React, Next.js</strong> et
-            applications web & mobiles.
+            {t('speciality')}
           </TypographySafe>
 
           <div className="flex flex-wrap gap-4">
-            <a href="/cv/Georgino_Bouko_CV.pdf" target="_blank">
+            <a href="/cv/Georgino_Bouko_CV.pdf" target="_blank" rel="noopener noreferrer" download>
               <Button {...({} as any)} color="gray" className="flex items-center gap-2" size="lg">
-                Télécharger mon CV
+                {t('download_cv')}
                  <ArrowDownTrayIcon className="h-5 w-5" />
               </Button>
             </a>
             <a href="#contact">
               <Button {...({} as any)} variant="outlined" color="gray" size="lg">
-                Me contacter
+                {t('contact_me')}
               </Button>
             </a>
           </div>
@@ -102,5 +102,3 @@ function Hero() {
     </header>
   );
 }
-
-export default Hero;

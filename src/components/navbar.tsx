@@ -18,6 +18,8 @@ import {
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { usePathname } from "next/navigation";
+import { useChangeLocale, useCurrentLocale } from "../locales/client";
+import { useScopedI18n } from "@/locales/client";
 
 const NAV_MENU = [
   {
@@ -64,7 +66,28 @@ export function Navbar() {
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const currentLocale = useCurrentLocale();
+  const changeLocale = useChangeLocale();
+  const scopedT = useScopedI18n("footer");
 
+  const NAV_MENU = [
+    { name: scopedT("navigation.home"), href: "/#home", icon: Squares2X2Icon },
+    {
+      name: scopedT("navigation.resume"),
+      href: "/#resume",
+      icon: AcademicCapIcon,
+    },
+    {
+      name: scopedT("navigation.skills"),
+      href: "/#stack",
+      icon: CommandLineIcon,
+    },
+    {
+      name: scopedT("navigation.projects"),
+      href: "/#projects",
+      icon: RectangleStackIcon,
+    },
+  ];
   const handleOpen = () => setOpen((cur) => !cur);
 
   React.useEffect(() => {
@@ -92,7 +115,7 @@ export function Navbar() {
             color="gray"
             className="text-lg font-bold"
           >
-            GB. Fullstack Developer
+           {scopedT("brand")}
           </TypographySafe>
         </a>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
@@ -104,12 +127,58 @@ export function Navbar() {
           ))}
         </ul>
         <div className="hidden items-center gap-2 lg:flex">
+          <div className="flex items-center gap-1 border border-gray-300 rounded-full p-1">
+            <button
+              onClick={() => changeLocale("fr")}
+              className={`px-3 py-1 text-sm rounded-full transition ${
+                currentLocale === "fr"
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              FR
+            </button>
+            <button
+              onClick={() => changeLocale("en")}
+              className={`px-3 py-1 text-sm rounded-full transition ${
+                currentLocale === "en"
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+
           <a href="/#contact-form">
             <Button {...({} as any)} color="gray">
-              Me contacter
+              {scopedT('contact.contactMe')}
             </Button>
           </a>
         </div>
+
+         <div className="flex items-center gap-1 border border-gray-300 rounded-full p-1 lg:hidden">
+            <button
+              onClick={() => changeLocale("fr")}
+              className={`px-3 py-1 text-sm rounded-full transition ${
+                currentLocale === "fr"
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              FR
+            </button>
+            <button
+              onClick={() => changeLocale("en")}
+              className={`px-3 py-1 text-sm rounded-full transition ${
+                currentLocale === "en"
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              EN
+            </button>
+          </div>
 
         <IconButton
           {...({} as any)}
@@ -127,7 +196,7 @@ export function Navbar() {
       </div>
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-4 mb-6">
             {NAV_MENU.map(({ name, icon: Icon, href }) => (
               <NavItem key={name} href={href}>
                 <Icon className="h-5 w-5" />
@@ -135,10 +204,39 @@ export function Navbar() {
               </NavItem>
             ))}
           </ul>
+          {/* <div className="flex gap-2 mb-6">
+            <button
+              onClick={() => {
+                changeLocale("fr");
+                setOpen(false);
+              }}
+              className={`w-full py-2 rounded-md text-sm ${
+                currentLocale === "fr"
+                  ? "bg-gray-900 text-white"
+                  : "border border-gray-300 text-gray-700"
+              }`}
+            >
+              Français
+            </button>
+
+            <button
+              onClick={() => {
+                changeLocale("en");
+                setOpen(false);
+              }}
+              className={`w-full py-2 rounded-md text-sm ${
+                currentLocale === "en"
+                  ? "bg-gray-900 text-white"
+                  : "border border-gray-300 text-gray-700"
+              }`}
+            >
+              English
+            </button>
+          </div> */}
           <div className="mt-6 mb-4 flex items-center gap-2">
             <a href="/#contact-form" className="w-full">
               <Button {...({} as any)} color="gray" className="w-full">
-                Me contacter
+                {scopedT('contact.contactMe')}
               </Button>
             </a>
           </div>
