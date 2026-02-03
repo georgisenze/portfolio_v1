@@ -58,16 +58,16 @@ export default function Hero() {
           <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
           
           {/* Image */}
-          <div className="relative z-10">
+            <div className="relative z-10">
             <Image
               width={1024}
               height={1024}
               alt="Développement web et mobile"
               src="/image/4471284.jpg"
-              className="h-[35rem] w-full rounded-xl object-cover shadow-2xl"
+              className="h-[20rem] w-full rounded-xl object-cover shadow-2xl sm:h-[28rem] lg:h-[35rem]"
               priority
             />
-          </div>
+            </div>
         </div>
       </div>
 

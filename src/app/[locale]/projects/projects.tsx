@@ -59,7 +59,7 @@ const projectsData = loadProjectsFromTranslations(scopedT);
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={24}
           autoplay={{
-            delay: 3500,
+            delay: 2000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
