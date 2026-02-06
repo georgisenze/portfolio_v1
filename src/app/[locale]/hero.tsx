@@ -63,7 +63,7 @@ export default function Hero() {
               width={1024}
               height={1024}
               alt="Développement web et mobile"
-              src="/image/4471284.jpg"
+              src="/image/stack.png"
               className="h-[20rem] w-full rounded-xl object-cover shadow-2xl sm:h-[28rem] lg:h-[35rem]"
               priority
             />
